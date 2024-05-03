@@ -1,0 +1,101 @@
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
+
+const App = () => {
+  const [nome, setNome] = useState('');
+  const [horario, setHorario] = useState('');
+  const [data, setData] = useState('');
+  const [duracaoTratamento, setDuracaoTratamento] = useState('');
+  const [duracaoEstoque, setDuracaoEstoque] = useState('');
+
+  const handleSubmit = () => {
+    alert('Informação adicionada com sucesso!');
+  };
+
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.topBar}>
+        <Text style={styles.barText}>Barra Superior</Text>
+      </View>
+      <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+            placeholder="Nome"
+            value={nome}
+            onChangeText={setNome}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Horário"
+            value={horario}
+            onChangeText={setHorario}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Data"
+            value={data}
+            onChangeText={setData}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Duração do tratamento"
+            value={duracaoTratamento}
+            onChangeText={setDuracaoTratamento}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Duração do estoque"
+            value={duracaoEstoque}
+            onChangeText={setDuracaoEstoque}
+          />
+        </View>
+        <Button
+          title="Confirmar"
+          onPress={handleSubmit}
+        />
+      </ScrollView>
+      <View style={styles.bottomBar}>
+        <Text style={styles.barText}>Barra Inferior</Text>
+      </View>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  topBar: {
+    height: 50,
+    backgroundColor: 'blue',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  bottomBar: {
+    height: 50,
+    backgroundColor: 'green',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  barText: {
+    color: 'white',
+    fontSize: 16,
+  },
+  inputContainer: {
+    width: '100%',
+    marginBottom: 20,
+  },
+  input: {
+    height: 40,
+    marginBottom: 12,
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 5,
+  },
+});
+
+export default App;
